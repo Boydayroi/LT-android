@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="CÁC PHÉP TOÁN SỐ HỌC"
+        android:textSize="32dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:text="A ="
+            android:textSize="58dp" />
+
+        <EditText
+            android:id="@+id/edtA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="58dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:text="B ="
+            android:textSize="58dp" />
+
+        <EditText
+            android:id="@+id/edtB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="58dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCong"
+            android:layout_width="86dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:onClick="TinhTong"
+            android:text="+"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/btnTru"
+            android:layout_width="86dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:onClick="TinhTru"
+            android:text="-"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/btnNhan"
+            android:layout_width="86dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:onClick="TinhNhan"
+            android:text="*"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/btnChia"
+            android:layout_width="86dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:onClick="TinhChia"
+            android:text="/"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="Kết quả:"
+            android:textSize="45dp" />
+
+        <TextView
+            android:id="@+id/tvKetqua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45dp" />
+    </LinearLayout>
+
+</LinearLayout>
