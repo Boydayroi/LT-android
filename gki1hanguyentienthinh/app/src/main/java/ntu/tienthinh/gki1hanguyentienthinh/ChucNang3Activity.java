@@ -3,62 +3,80 @@ package ntu.tienthinh.gki1hanguyentienthinh;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 public class ChucNang3Activity extends AppCompatActivity {
 
-    private String[] danhSachMonAn = {
-            "Phở Bò Truyền Thống",
-            "Bún Chả Hà Nội",
-            "Bánh Mì Kẹp Thịt",
-            "Gỏi Cuốn Tôm Thịt",
-            "Cơm Tấm Sườn Bì Chả",
-            "Bún Riêu Cua",
-            "Canh Chua Cá Lóc"
-    };
+    private ListView lvMonAn;
+    private final ArrayList<String> tenMonAnList = new ArrayList<>();
+    private final ArrayList<String> chiTietList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chuc_nang3); // Đảm bảo tên layout đúng
+        setContentView(R.layout.activity_chuc_nang3);
 
-        ListView lvMonAn = findViewById(R.id.lv_mon_an);
+        lvMonAn = findViewById(R.id.lv_mon_an);
 
-        // 1. Tạo Adapter
-        // Sử dụng layout đơn giản có sẵn của Android (simple_list_item_1)
+        docDuLieuTuJSON(); // Gọi hàm đọc JSON
+
+        // 1.0 đ: Hiển thị danh sách
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                danhSachMonAn
+                tenMonAnList
         );
 
-        // 2. Gán Adapter vào ListView
         lvMonAn.setAdapter(adapter);
 
-        // 3. Bắt sự kiện click vào từng item (1.0 điểm)
-        lvMonAn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // 0.5 đ: Chuyển nội dung sang ChiTietMonActivity (thay cho Toast)
+        lvMonAn.setOnItemClickListener((parent, view, position, id) -> {
 
-                String tenMonAnDuocChon = danhSachMonAn[position];
+            String tenMonAnDuocChon = tenMonAnList.get(position);
+            String chiTietDuocChon = chiTietList.get(position);
 
-                // Yêu cầu 1.0 đ: Thông báo mục được click (Toast)
-                Toast.makeText(ChucNang3Activity.this,
-                        "Bạn đã chọn: " + tenMonAnDuocChon,
-                        Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ChucNang3Activity.this, ChiTietMonActivity.class);
 
-                // Yêu cầu 0.5 đ: Chuyển nội dung sang Item3Activity
-                Intent intent = new Intent(ChucNang3Activity.this, Item3Activity.class);
+            intent.putExtra("TEN_MON", tenMonAnDuocChon);
+            intent.putExtra("CHI_TIET", chiTietDuocChon);
 
-                // Gửi dữ liệu đi bằng Intent.putExtra
-                intent.putExtra("TEN_MON_AN", tenMonAnDuocChon);
-
-                startActivity(intent);
-            }
+            startActivity(intent);
         });
+    }
+
+    private void docDuLieuTuJSON() {
+        try {
+            // Đọc file mon_an.json từ thư mục raw (0.5 điểm)
+            InputStream is = getResources().openRawResource(R.raw.mon_an);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            String jsonString = new String(buffer, "UTF-8");
+
+            JSONArray jsonArray = new JSONArray(jsonString);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject monAn = jsonArray.getJSONObject(i);
+
+                String ten = monAn.getString("ten");
+                String thanhPhan = monAn.getString("thanh_phan");
+
+                tenMonAnList.add(ten);
+                chiTietList.add(thanhPhan);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Lỗi đọc dữ liệu JSON", Toast.LENGTH_LONG).show();
+        }
     }
 }

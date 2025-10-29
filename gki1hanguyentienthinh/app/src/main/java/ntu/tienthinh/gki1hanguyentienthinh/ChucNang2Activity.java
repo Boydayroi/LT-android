@@ -86,4 +86,5 @@ public class ChucNang2Activity extends AppCompatActivity {
             return "Béo phì";
         }
     }
+
 }

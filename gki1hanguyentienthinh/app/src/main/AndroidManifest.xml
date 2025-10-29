@@ -11,15 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gki1hanguyentienthinh">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ChucNang2Activity" />
+        <activity android:name=".ChucNang3Activity" />
+        <activity android:name=".ChiTietMonActivity" />
+        <activity android:name=".ChucNang4" />
+        <activity android:name=".ChiTietBaiActivity" />
+        <activity android:name=".AboutMe" />
+
     </application>
 
 </manifest>

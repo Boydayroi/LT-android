@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnChucNang4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChucNang4Activity.class);
+                Intent intent = new Intent(MainActivity.this, ChucNang4.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AboutMeActivity.class);
+                Intent intent = new Intent(MainActivity.this, AboutMe.class);
                 startActivity(intent);
             }
         });
