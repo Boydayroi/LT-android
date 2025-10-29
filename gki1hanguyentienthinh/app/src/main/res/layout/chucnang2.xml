@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".ChucNang2Activity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tính Chỉ số BMI (Body Mass Index)"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cân nặng (kg):"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/et_can_nang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ví dụ: 65.5 (kg)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chiều cao (m):"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/et_chieu_cao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ví dụ: 1.75 (m)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btn_tinh_bmi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tính BMI"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#00BCD4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kết quả BMI:"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_ket_qua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="---"
+        android:textSize="24sp"
+        android:textColor="#3F51B5"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#E8EAF6"/>
+
+</LinearLayout>
