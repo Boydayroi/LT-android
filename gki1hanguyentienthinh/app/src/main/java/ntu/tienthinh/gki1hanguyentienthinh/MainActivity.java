@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        thong_ke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, thong_ke.class);
+                startActivity(intent);
+            }
+        });
 
         // 4. Chuyển sang About Me
         btnAboutMe.setOnClickListener(new View.OnClickListener() {
